@@ -19,13 +19,15 @@ if __name__ == '__main__':
             print('No changes made')
             print('Exiting')
             sys.exit(0)
-        if os.path.isdir('./.htpc-browser-launcher'):
-            shutil.rmtree('./.htpc-browser-launcher')
-        os.mkdir('./.htpc-browser-launcher')
+        homepath = os.path.expanduser('~')
+        if os.path.isdir(homepath + '/.htpc-browser-launcher'):
+            shutil.rmtree(homepath + '/.htpc-browser-launcher')
+        os.mkdir(homepath + '/.htpc-browser-launcher')
         print('Installing HTPC Browser Launcher')
-        shutil.move("./htpc-browser-launcher.cfg", "./.htpc-browser-launcher/htpc-browser-launcher.cfg")
-        shutil.move("./htpc-browser-launcher.py", "./.htpc-browser-launcher/htpc-browser-launcher.py")
-        os.chmod("./.htpc-browser-launcher/htpc-browser-launcher.py", 0o755)
+        shutil.move("./htpc-browser-launcher.cfg", homepath + "/.htpc-browser-launcher/htpc-browser-launcher.cfg")
+        shutil.move("./htpc-browser-launcher.py", homepath + "/.htpc-browser-launcher/htpc-browser-launcher.py")
+        shutil.move("./.keynavrc", homepath + "/.keynavrc")
+        os.chmod(homepath + "/.htpc-browser-launcher/htpc-browser-launcher.py", 0o755)
         print('HTPC Browser Launcher was successfully installed.')
     else:
         print('Run this install script without using sudo')
