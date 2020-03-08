@@ -1,0 +1,38 @@
+# This is a modified keynavrc file. Yours should live in 
+# $HOME/.keynavrc
+#
+# Lines beginning with '#' are comments.
+# Format is:
+#   keysequence cmd1,cmd2,cmd3...
+#
+# Other special values are:
+#   'clear' on a line by itself (no quotes) will erase all keybindings
+#   (including the defaults)
+#   'daemonize' on a line by itself (no quotes) will make keynav background
+#   after parsing the configfile and having no critical errors.
+# 
+# The 'start' command alone is handled specially, in that any key sequence
+# mapped to 'start' will be grabbed when keynav starts up so you can invoke it
+# to activate keynav. The remaining keys are only recognized while keynav is
+# active
+#
+# Project page; http://www.semicomplete.com/projects/keynav
+
+# Use 'clear' to blow away any previous keybindings
+#clear
+
+# Use 'daemonize' to background ourselves.
+daemonize
+
+p start
+Escape end
+4 cut-left
+8 cut-down
+2 cut-up
+6 cut-right
+1 cut-left,cut-up
+3 cut-right,cut-up
+7 cut-left,cut-down
+9 cut-right,cut-down
+5 warp,click 1,end
+0 warp,click 3,end
