@@ -66,7 +66,13 @@ if __name__ == '__main__':
         command = split(browser + fullscreenmethod + ' https://lv.tedsblog.org')
     else:
         command = split(browser + fullscreenmethod)
-    subprocess.run(command, shell=False)
+    try:
+        subprocess.run(command, shell=False)
+    except FileNotFoundError:
+        print('Command not recognized: ' + browser)
+        if not shutil.which(browser):
+            print("It appears the browser is not installed")
+        print('Aborting')
     #Stop keynav:
     if use_keynav:
         command = split("start-stop-daemon --stop --name keynav")
